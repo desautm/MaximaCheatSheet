@@ -1,0 +1,69 @@
+---
+title: "Commandes usuelles pour calcul intégral en `MAXIMA`"
+output:
+  pdf_document:
+    keep_tex: yes
+    latex_engine: xelatex
+header-includes:
+  - \usepackage{longtable}
+  - \usepackage{booktabs}
+  - \usepackage{multirow}
+classoption: landscape
+geometry: margin=1cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+\begin{center}
+\begin{longtable}{@{}p{4cm}p{12cm}cc@{}}
+\toprule
+\textbf{Sujet} & \textbf{Discussion} & \textbf{Entrée \texttt{MAXIMA}} & \textbf{Sortie \texttt{MAXIMA}} \\ 
+\midrule
+\endhead
+
+\textbf{Entrée de commandes} & Vous devez utiliser le point virgule (\texttt{;}) et \texttt{Ctrl-Entrée} pour effectuer une commande &
+5/6*5/6; & $\frac{25}{36}$ \\
+
+\midrule
+
+\textbf{Utilisation de la ligne précédente} & Le symbole (\texttt{\%}) dit à \texttt{MAXIMA} d'utiliser le calcul précédent. &
+\%+1; & $\frac{61}{36}$ \\
+
+\midrule
+
+\textbf{Utilisation d'une ligne  par son nom} & Vous pouvez utiliser un résultat à l'aide de sa ligne de sortie. &
+\%o2+1; & $\frac{97}{36}$ \\
+
+\midrule
+
+\textbf{Évaluation numérique} & Vous pouvez demander à \texttt{MAXIMA} de calculer la valeur numérique d'un résultat. &
+\texttt{float(\%)}; & $2.694444444444445$ \\
+
+\midrule
+
+\multirow{5}{*}{\textbf{Évaluation numérique}} & Addition : \texttt{+}. & \texttt{1+3}; & $4$ \\
+& Soustraction : \texttt{-} & \texttt{5-10}; & $-5$ \\
+& Multiplication : \texttt{+} & \texttt{2*3}; & $6$ \\
+& Division : \texttt{/} & \texttt{5/25}; & $\frac{1}{5}$ \\
+& Puissance : \^ & \texttt{3\^2}; & $9$ \\
+
+\midrule
+
+\textbf{Définir une fonction} & Pour définir une fonction, vous lui donnez un nom, suivi par sa variable indépendante entre parenthèses, suivis par le symbole \texttt{:=}, suivi par sa définition. &
+\texttt{f1(x):=x\^2-5*x+6}; & $f1(x):=x^2-5x+6$ \\
+
+\midrule
+
+\textbf{Évaluation d'une fonction} & Une fois définie, vous pouvez utiliser la fonction de la même façon que vous le feriez habituellement. &
+\texttt{f1(5)}; & $6$ \\
+
+\midrule
+
+\multirow{2}{*}{\textbf{Assignation d'une valeur à une variable}} & Le symbole \texttt{:} assigne une valeur à une variable. & \texttt{a:5}; & $5$ \\
+& La valeur associée à la variable sera maintenant utilisée à la place du nom de la variable. & \texttt{f1(a)}; & $6$ \\
+
+\bottomrule
+\end{longtable}
+\end{center}
