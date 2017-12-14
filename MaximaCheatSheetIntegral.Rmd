@@ -25,16 +25,18 @@ knitr::opts_chunk$set(echo = TRUE)
 \endhead
 
 \multirow{3}{4cm}{\textbf{Calculer une limite}} & Vous pouvez utiliser la commande \texttt{limit} pour calculer une limite. Vous entrez en premier lieu la fonction dont on cherche la limite, la variable et enfin la valeur où nous évaluons la limite. & \texttt{limit(sin(x)/x,x,0)}; & $1$ \\
+\cmidrule{2-4}
 & La limite à droite est obtenue en ajoutant \texttt{plus}. & \small{\texttt{limit(tan(x),x,\%pi/2,plus)}}; & $-\infty$ \\
+\cmidrule{2-4}
 & La limite à gauche est obtenue en ajoutant \texttt{minus}. & \small{\texttt{limit(tan(x),x,\%pi/2,minus)}}; & $\infty$ \\
 
 \midrule
 
-\textbf{Dérivation d'une fonction} & Il est possible de dériver des fonctions avec \texttt{MAXIMA} en utilisant la commande \texttt{diff}. Nous devons spécifier la fonction et la variable indépendante. & \texttt{diff((3*x+2)\^3,x)}; & $9{{\left( 3x+2\right) }^{2}}$ \\
+\textbf{Dérivation d'une fonction} & Il est possible de dériver des fonctions avec \texttt{MAXIMA} en utilisant la commande \texttt{diff}. Nous devons spécifier la fonction et la variable indépendante. & \texttt{diff((3*x+2)$\wedge$3,x)}; & $9{{\left( 3x+2\right) }^{2}}$ \\
 
 \midrule
 
-\textbf{Dérivation d'ordre supérieur d'une fonction} & Il est possible de trouver les dérivées d'ordres supérieurs de fonctions avec \texttt{MAXIMA} en utilisant la commande \texttt{diff} et en ajoutant l'ordre de la dérivée. & \texttt{diff((3*x+2)\^3,x,3)}; & $54\left( 3x+2\right)$ \\
+\textbf{Dérivation d'ordre supérieur d'une fonction} & Il est possible de trouver les dérivées d'ordres supérieurs de fonctions avec \texttt{MAXIMA} en utilisant la commande \texttt{diff} et en ajoutant l'ordre de la dérivée. & \texttt{diff((3*x+2)$\wedge$3,x,3)}; & $54\left( 3x+2\right)$ \\
 
 \midrule
 
@@ -46,12 +48,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \midrule
 
-\textbf{Intégrale numérique} & Il est possible de trouver des intégrales numérique avec \texttt{MAXIMA} en utilisant la commande \texttt{romberg}. Nous devons spécifier la fonction, la variable indépendante et les deux bornes. & \texttt{romberg(sin(sin(x),x,0,1))}; & $0.4306059236425572$ \\
+\textbf{Intégrale numérique} & Il est possible de trouver des intégrales numérique avec \texttt{MAXIMA} en utilisant la commande \texttt{romberg}. Nous devons spécifier la fonction, la variable indépendante et les deux bornes. & \texttt{romberg(sin(sin(x)),x,0,1)}; & $0.4306059236425572$ \\
 
 \midrule
 
-\multirow{2}{4cm}{\textbf{Sommations}} & Nous pouvons écrire la sommation avec \texttt{MAXIMA} en utilisant la commande \texttt{sum}. Nous spécifions le terme général, la variable, le terme initial et le terme final. & \texttt{sum(1/k\^2,k,1,inf)}; & $\sum\limits_{k=1}^{\infty} \frac{1}{k^2}$ \\
-& Pour évaluer la sommation nous utilisons la command \texttt{simpsum}. & \texttt{sum(1/k\^2,k,1,inf)}, \texttt{simpsum}; & $\frac{\pi^2}{6}$ \\
+\multirow{2}{4cm}{\textbf{Équations différentielles du premier ordre}} & Nous pouvons résoudre des équations différentielles du premier ordre avec \texttt{MAXIMA} en utilisant la commande \texttt{ode2}. Nous spécifions l'équation différentielle en utilisant la commande \texttt{diff} et en la faisant précéder d'une apostrophe \texttt{'}. & \texttt{edo1:ode2('diff(y,x)=3*y, y, x)}; & $y=\mathit{\%{}c}\,{{\%{}e}^{3x}}$ \\
+\cmidrule{2-4}
+& Lorsque nous avons une condition initiale nous utilisons la commande \texttt{ic1}. & \texttt{ic1(edo1, x=0, y=2)}; & $y=2\%e^{3x}$ \\
+
+\midrule
+
+\multirow{2}{4cm}{\textbf{Équations différentielles du second ordre}} & Nous pouvons résoudre des équations différentielles du second ordre avec \texttt{MAXIMA} en utilisant la commande \texttt{ode2}. Nous spécifions l'équation différentielle en utilisant la commande \texttt{diff} et en la faisant précéder d'une apostrophe \texttt{'}. & \texttt{edo2:ode2('diff(y,x,2)=y, y, x)}; & $y=\mathit{\%{}k1}\,{{\%{}e}^{x}}+\mathit{\%{}k^2}\,{{\%{}e}^{-x}}$ \\
+\cmidrule{2-4}
+& Lorsque nous avons une condition initiale nous utilisons la commande \texttt{ic2}. & \texttt{ic2(edo2,x=0,y=2,'diff(y,x)=1)}; & $y=\frac{3{{\%{}e}^{x}}}{2}+\frac{{{\%{}e}^{-x}}}{2}$ \\
+
+\midrule
+
+\multirow{2}{4cm}{\textbf{Sommations}} & Nous pouvons écrire la sommation avec \texttt{MAXIMA} en utilisant la commande \texttt{sum}. Nous spécifions le terme général, la variable, le terme initial et le terme final. & \texttt{sum(1/k$\wedge$2,k,1,inf)}; & $\sum\limits_{k=1}^{\infty} \frac{1}{k^2}$ \\
+\cmidrule{2-4}
+& Pour évaluer la sommation nous utilisons la commande \texttt{simpsum}. & \texttt{sum(1/k$\wedge$2,k,1,inf)}, \texttt{simpsum}; & $\frac{\pi^2}{6}$ \\
 
 \midrule
 
