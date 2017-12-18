@@ -18,13 +18,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 \begin{center}
-\begin{longtable}{@{}p{4cm}p{10cm}cc@{}}
+\begin{longtable}{p{4cm}p{10cm}cc}
 \toprule
 \textbf{Sujet} & \textbf{Discussion} & \textbf{Entrée \texttt{MAXIMA}} & \textbf{Sortie \texttt{MAXIMA}} \\ 
 \midrule
 \endhead
 
-\multirow{3}{4cm}{\textbf{Calculer une limite}} & Vous pouvez utiliser la commande \texttt{limit} pour calculer une limite. Vous entrez en premier lieu la fonction dont on cherche la limite, la variable et enfin la valeur où nous évaluons la limite. & \texttt{limit(sin(x)/x,x,0)}; & $1$ \\
+\multirow[c]{3}{4cm}{\textbf{Calculer une limite}} & Vous pouvez utiliser la commande \texttt{limit} pour calculer une limite. Vous entrez en premier lieu la fonction dont on cherche la limite, la variable et enfin la valeur où nous évaluons la limite. & \texttt{limit(sin(x)/x,x,0)}; & $1$ \\
 \cmidrule{2-4}
 & La limite à droite est obtenue en ajoutant \texttt{plus}. & \small{\texttt{limit(tan(x),x,\%pi/2,plus)}}; & $-\infty$ \\
 \cmidrule{2-4}
@@ -37,6 +37,12 @@ knitr::opts_chunk$set(echo = TRUE)
 \midrule
 
 \textbf{Dérivation d'ordre supérieur d'une fonction} & Il est possible de trouver les dérivées d'ordres supérieurs de fonctions avec \texttt{MAXIMA} en utilisant la commande \texttt{diff} et en ajoutant l'ordre de la dérivée. & \texttt{diff((3*x+2)$\wedge$3,x,3)}; & $54\left( 3x+2\right)$ \\
+
+\midrule
+
+\multirow{2}{4cm}{\textbf{Dérivations implicites}} & Nous pouvons dériver implicitement avec \texttt{MAXIMA} en utilisant la commande \texttt{diff}. Nous spécifions l'équation à dériver en utilisant la commande \texttt{diff} et en indiquant quelle variable dépendante dépend de la variable indépendante. & \texttt{deriv:diff(x$\wedge$2+y(x)$\wedge$2,x)}; & $2\operatorname{y}(x)\,\left( \frac{d}{dx}\operatorname{y}(x)\right) +2x$ \\
+\cmidrule{2-4}
+& Nous isolons la dérivée en utilisant la commande \texttt{solve}. & \texttt{solve(deriv,'diff(y(x),x))}; & $[\frac{d}{dx}\operatorname{y}(x)=-\frac{x}{\operatorname{y}(x)}]$ \\
 
 \midrule
 
